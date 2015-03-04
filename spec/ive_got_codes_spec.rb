@@ -12,8 +12,8 @@ describe 'PhoneNumber' do
   context '#clean_area_codes' do
     subject { PhoneNumbers.new }
 
-    it { should respond_to(:clean_area_codes) }
-    it 'should return AN ARRAY of ONLY the area codes of the numbers' do
+    xit { should respond_to(:clean_area_codes) }
+    xit 'should return AN ARRAY of ONLY the area codes of the numbers' do
       expect(phone_list.clean_area_codes).to include("884", "238", "158", "172",
                                                      "540", "782", "657", "834",
                                                      "370", "200", "247", "556",
@@ -21,14 +21,14 @@ describe 'PhoneNumber' do
                                                      "829", "633")
     end
 
-    it { should respond_to(:clean_without_area_codes) }
-    it 'should return an array of ONLY the phone number WITHOUT the area code' do
+    xit { should respond_to(:clean_without_area_codes) }
+    xit 'should return an array of ONLY the phone number WITHOUT the area code' do
       expect(phone_list.clean_without_area_codes).to include("848.8759", "275-2358", "421.2305", "508-4776",
                                                              "032-8972","681-7735", "096.6714", "970-3122",
                                                             "641-9777", "016-7690")
     end
 
-    it 'should return all area_codes that occur exactly 5 times using an instance method frequency' do
+    xit 'should return all area_codes that occur exactly 5 times using an instance method frequency' do
       expect(phone_list.frequency(5).count).to eq(8)
       expect(phone_list.frequency(5)).to include({"924"=>5, "317"=>5, "857"=>5, "688"=>5, "674"=>5, "297"=>5, "551"=>5, "114"=>5})
     end
