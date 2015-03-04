@@ -1,47 +1,4 @@
 class PhoneNumbers
-  attr_accessor :all_numbers
-
-  def clean_area_codes
-    final_area = []
-    self.all_numbers.each do |full_num|
-      if full_num[0..1] == "1-"
-        final_area << full_num[2..4]
-      elsif full_num[0] == "("
-        final_area << full_num[1..3]
-      else
-        final_area << full_num[0..2]
-      end
-    end
-    final_area
-  end
-
-  def clean_without_area_codes
-    final_list = []
-    self.all_numbers.each do |full_num|
-      if full_num[0..1] == "1-"
-        final_list << full_num[6..-1]
-      elsif full_num[0] == "("
-        final_list << full_num[6..-1]
-      elsif full_num[3] == '.'
-        final_list << full_num[4..-1]
-      end
-    end
-    final_list
-  end
-
-  def count_area_codes
-    self.clean_area_codes.reduce(Hash.new(0)) { |hash,enum| hash[enum] += 1 ; hash }
-  end
-
-  def frequency(val=5)
-    self.count_area_codes.select { |k,v| v==val }
-  end
-
-  # def final_list_code
-  #   hash = self.count_area_codes
-  #   final_hash = hash.map {|k,v| hash[k] = v.count }.sort_by { |k,v| v }.reverse
-  #   final_hash
-  # end
 
   def initialize
     @all_numbers = ["1-884-681-7735",
